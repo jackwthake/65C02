@@ -1,0 +1,4 @@
+bin/
+minipro/
+vasm/
+*.out
