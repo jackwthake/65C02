@@ -1,12 +1,12 @@
 /* Linker script for Ben Eater's 6502 breadboard computer. */
 
 /* Provide imaginary (zero page) registers. */
-__rc0 = 0xe0;
+__rc0 = 0x00;
 INCLUDE /home/jwt/llvm-mos/mos-platform/common/lib/imag-regs.ld
-ASSERT(__rc31 == 0xff, "Inconsistent zero page map.")
+ASSERT(__rc31 == 0x1f, "Inconsistent zero page map.")
 
 MEMORY {
-  zp : ORIGIN = 0x00, LENGTH = 0xe0
+  zp : ORIGIN = 0x20, LENGTH = 0xe0 - 0x20
   ram : ORIGIN = 0x200, LENGTH = 0x4000 - 0x200
   rom : ORIGIN = 0x8000, LENGTH = 0x7ffa
 }
