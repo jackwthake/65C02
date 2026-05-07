@@ -1,7 +1,7 @@
 CC=~/llvm-mos/bin/mos-common-clang
 
 default: bin
-	$(CC) -Os -T src/link.ld -o bin/prog.bin src/main.c
+	$(CC) -Os -T src/link.ld -o bin/prog.bin src/jlibc.c src/main.c
 
 bin:
 	mkdir -p bin
