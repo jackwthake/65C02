@@ -43,4 +43,5 @@ void lcd_clear(void) {
   lcd_send_command(LCD_CLEAR);
   NOP5000();
   NOP5000(); // ~2.56ms, enough for the 1.52ms clear execution time
+  lcd_send_command(LCD_RETURN_HOME); // move to home
 }

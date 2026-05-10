@@ -14,6 +14,7 @@
 #define LCD_DISPL_ON 0x0C
 #define LCD_CLEAR 0x01            // Display On, Cursor Off, Blink Off.
 #define LCD_RETURN_HOME 0x02
+#define LCD_LINE2 0xC0            // shift to line 2
 #define LCD_DISPL_SHIFT_NORM 0x06 // increment cursor dont shift display
 #define LCD_CURS_LEFT 0X10
 #define LCD_CURS_right 0X14
