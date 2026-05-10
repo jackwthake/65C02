@@ -2,23 +2,22 @@
 
 int main(void) {
   lcd_init();
+  u16 monitor_addr = 0x8000; // tryin to set this as volatile seems to mess with initialisation
+                             // if set to volatile its initial value is never set to 0x8000
+  
+  while (1) {
+    lcd_clear();
 
-  // print_int(7);
-  // print_int(69);
-  // print_int(420);
-  // print_int(6969);
-  // print_int(69420);
-
-  // mini_printf("Hello", NULL);
-
-  print_str("Hello world");
- 
-  u8 pattern = 0b10101010;
-  while(1) {
-    u16 i;
-    PORTB = pattern;
-    pattern = (pattern << 1) | (pattern >> 7);
+    print_page(monitor_addr); // for some reason always prints memory at 0x8000
+    monitor_addr += 4;
     
-    for (i = 0; i < 12000; ++i) { asm("NOP"); }
+    lcd_send_command(0xC0); // move to next line
+
+    print_page(monitor_addr); // prints correct scrolling value
+    monitor_addr += 4;
+
+
+    long_delay();
+    long_delay();
   }
 }

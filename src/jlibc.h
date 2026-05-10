@@ -39,12 +39,14 @@ typedef unsigned int   size_t;
 
 unsigned strnlen(char *str, size_t max);
 
+void long_delay(void);
+
 void lcd_init(void);
 void lcd_send_command(unsigned char cmd);
+void lcd_clear(void);
 
 void put_c(char c);
 void print_str(const char *str);
-void print_int(int x);
-void mini_printf(char *fmt, void **argv);
-
+void print_hex_byte(u8 b);
+void print_page(u16 addr);
 #endif
